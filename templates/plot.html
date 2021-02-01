@@ -1,0 +1,54 @@
+{% extends "layout.html" %}
+{% block content %}
+
+<div class="container">
+    <script type="text/javascript" src="{{ cdn_js | safe }}"></script>
+    
+    <div class="mt-5 mb-5">
+        <h1>Welcome</h1>
+        <p>Welcome to the only site you need for all your NIO-investing DD needs!</p>
+    </div>
+    
+    <div class="mt-5 mb-5">
+        <h2>Intro to NIO</h2>
+        <img class="img-fluid" src="{{ url_for('static', filename='images/ec6.jpg') }}" alt="nio img">
+        <p>NIO is a Shanghai-based electronic vehicle manafacturer and pioneer. Their premium vehicles feature next generation technologies in connectivity, autonomous driving and artificial intelligence. Examples include the in-car AI assistant, 'NOMI' and, the introduction of an innovative battery swapping service allowing NIO vehicles to reaquire a full charge in minutes. They are committed to a more environmentally friendly future, as suggested by their Chinese name, 'Weilai,' which means Blue Sky Coming.         
+        </p>
+    </div>
+    
+
+    <div class="charts mt-5 mb-5">
+        <h2 class="chart-heading">NIO this month</h2>
+        <span class="month-span" >Month</span>
+        <label class="switch">
+            <input class="toggle" type="checkbox">
+            <span class="slider"></span>
+        </label>
+        <span class="year-span">Year</span>
+
+        <div class="graph">
+            <div>
+                {{ script1 | safe }}
+                {{ div1 | safe }}
+            </div>
+            <div class="graph-year">
+                {{ script2 | safe }}
+                {{ div2 | safe }}
+            </div>            
+        </div>
+    </div>
+    
+    <div class="charts mt-5 mb-5">
+        <h3>Top NIO News</h3>
+        {% include "partials/news.html" %}
+    </div>
+    
+    <div class="charts mt-5 mb-5">
+        <h3>Top NIO posts from r/WSB</h3>
+        {% include "partials/reddit.html" %}
+    </div>    
+</div>
+
+<script type="text/javascript" src="{{ url_for('static', filename='js/toggle.js') }}"></script>
+
+{% endblock %}
